@@ -4,19 +4,12 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-// 图片错误处理组件 - 直接根据水晶名称读取图片
+// 图片错误处理组件 - 统一使用占位图片
 const CrystalImage = ({ crystal_name, className }: { crystal_name: string; className?: string }) => {
-  const [image_error, set_image_error] = useState(false)
   const [is_loading, set_is_loading] = useState(true)
   
-  // 构建图片路径：/crystals/水晶名称.svg
-  const image_src = `/crystals/${crystal_name}.svg`
-  const fallback_image = '/crystal-placeholder.svg'
-  
-  const handle_image_error = () => {
-    set_image_error(true)
-    set_is_loading(false)
-  }
+  // 统一使用占位图片，避免404错误
+  const image_src = '/crystal-placeholder.svg'
   
   const handle_image_load = () => {
     set_is_loading(false)
@@ -30,20 +23,14 @@ const CrystalImage = ({ crystal_name, className }: { crystal_name: string; class
         </div>
       )}
       <Image
-        src={image_error ? fallback_image : image_src}
+        src={image_src}
         alt={crystal_name}
         width={800}
         height={800}
         className={`w-full h-48 object-cover rounded-lg transition-opacity duration-300 ${is_loading ? 'opacity-0' : 'opacity-100'}`}
-        onError={handle_image_error}
         onLoad={handle_image_load}
         priority={false}
       />
-      {image_error && (
-        <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
-          使用默认图片
-        </div>
-      )}
     </div>
   )
 }

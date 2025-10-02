@@ -14,26 +14,13 @@ export function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white transition-colors duration-200 underline"
             >
-              ICP备案号：[请填写您的ICP备案号]
-            </a>
-          </div>
-
-          {/* 公安备案信息（如果有的话） */}
-          <div className="text-sm text-gray-200">
-            <a 
-              href="http://www.beian.gov.cn/portal/registerSystemInfo" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-200 underline flex items-center justify-center gap-1"
-            >
-              <span>🔒</span>
-              <span>公安备案号：[请填写您的公安备案号]</span>
+              苏ICP备2025210868号-1
             </a>
           </div>
 
           {/* 版权信息 */}
           <div className="text-sm text-gray-400">
-            © {new Date().getFullYear()} 保留所有权利.
+            © {new Date().getFullYear()} 爻光晶舍 保留所有权利
           </div>
         </div>
       </div>

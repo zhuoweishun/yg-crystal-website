@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "build:prod": "cross-env NODE_ENV=production ESLINT_NO_DEV_ERRORS=true next build",
-    "start:prod": "cross-env NODE_ENV=production next start -p 3002",
+    "start:prod": "cross-env NODE_ENV=production next start -p 3002 -H 0.0.0.0",
     "deploy": "npm run build:prod && pm2 start ecosystem.config.js --env production",
     "deploy:restart": "pm2 restart yg-crystal-website",
     "deploy:stop": "pm2 stop yg-crystal-website",

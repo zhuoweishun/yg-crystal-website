@@ -3,7 +3,8 @@ module.exports = {
     {
       // 应用基本信息
       name: 'yg-crystal-website',
-      script: 'server.js',
+      script: 'npm',
+      args: 'run start:prod',
       cwd: '/www/wwwroot/yg-crystal-website',
       
       // 运行环境

@@ -1,4 +1,4 @@
-﻿import type { NextConfig } from 'next'
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   // 图片优化配置
@@ -48,14 +48,16 @@ const nextConfig: NextConfig = {
     } : false,
   },
 
-  // 输出配置
-  output: 'standalone',
+  // 输出配置 - 只在生产环境使用standalone
+  ...(process.env.NODE_ENV === 'production' && { output: 'standalone' }),
 
   // 压缩配置
   compress: true,
 
-  // 资源前缀（用于CDN）
-  assetPrefix: process.env.NODE_ENV === 'production' ? process.env.ASSET_PREFIX : '',
+  // 资源前缀（用于CDN）- 确保开发环境为undefined
+  ...(process.env.NODE_ENV === 'production' && process.env.ASSET_PREFIX && { 
+    assetPrefix: process.env.ASSET_PREFIX 
+  }),
 
   // 重写规则（API代理）
   async rewrites() {
