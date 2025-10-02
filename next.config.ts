@@ -69,6 +69,39 @@ const nextConfig: NextConfig = {
     ]
   },
 
+  // 重定向规则（HTTP到HTTPS，www重定向）
+  async redirects() {
+    return [
+      // 强制HTTPS重定向（仅在生产环境）
+      ...(process.env.NODE_ENV === 'production' ? [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'header',
+              key: 'x-forwarded-proto',
+              value: 'http',
+            },
+          ],
+          destination: 'https://yg-crystal.com/:path*',
+          permanent: true,
+        },
+        // www重定向到非www
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'www.yg-crystal.com',
+            },
+          ],
+          destination: 'https://yg-crystal.com/:path*',
+          permanent: true,
+        },
+      ] : []),
+    ]
+  },
+
   // 安全和性能头部
   async headers() {
     return [
