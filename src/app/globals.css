@@ -1,26 +1,219 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 基础样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #1a202c;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* 全屏区域样式 */
+.full_screen_section {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 英雄背景图片 */
+.hero_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* 渐变遮罩 */
+.hero_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 55, 72, 0.7) 0%,
+    rgba(66, 153, 225, 0.5) 50%,
+    rgba(45, 55, 72, 0.8) 100%
+  );
+  z-index: 2;
+}
+
+/* 内容区域 */
+.hero_content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+/* 标题样式 */
+.hero_title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 副标题样式 */
+.hero_subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* 描述文字样式 */
+.hero_description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 滚动指示器 */
+.scroll_indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  z-index: 3;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero_content {
+    padding: 0 1rem;
+  }
+  
+  .hero_title {
+    font-size: clamp(2rem, 10vw, 4rem);
+    margin-bottom: 1rem;
+  }
+  
+  .hero_subtitle {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero_description {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    line-height: 1.6;
+  }
+  
+  .scroll_indicator {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .full_screen_section {
+    height: 100vh;
+    height: 100dvh; /* 动态视口高度，适配移动端 */
+  }
+  
+  .hero_content {
+    padding: 0 0.75rem;
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4299e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
+}
+
+/* 平滑滚动增强 */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* 焦点可访问性 */
+.scroll_indicator:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 4px;
+}
+
+/* 加载状态 */
+.loading_screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* 图片加载优化 */
+.hero_background {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hero_background[data-loaded="false"] {
+  opacity: 0;
+}
+
+.hero_background[data-loaded="true"] {
+  opacity: 1;
 }
