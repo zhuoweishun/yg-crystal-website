@@ -92,6 +92,7 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
+              key: 'host',
               value: 'www.yg-crystal.com',
             },
           ],
