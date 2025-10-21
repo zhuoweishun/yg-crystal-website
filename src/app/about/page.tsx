@@ -81,7 +81,7 @@ export default function About() {
             >
               <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=600&q=75"
+                  src="/crystal-placeholder.svg"
                   alt="主理人汪成冲"
                   fill
                   className="object-cover"
@@ -197,19 +197,19 @@ export default function About() {
                 step: "01",
                 title: "精选原石",
                 desc: "亲自前往产地，用专业眼光和直觉感受，挑选每一块具有独特能量和美感的天然水晶原石。",
-                image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=75"
+                image: "/crystal-placeholder.svg"
               },
               {
                 step: "02",
                 title: "创意设计",
                 desc: "根据每块水晶的天然特性，构思独特的设计方案，让设计与材料完美融合，展现最佳效果。",
-                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=75"
+                image: "/crystal-placeholder.svg"
               },
               {
                 step: "03",
                 title: "精工制作",
                 desc: "运用传统手工技艺结合现代工具，亲自完成每一道工序，确保作品达到最高品质标准。",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75"
+                image: "/crystal-placeholder.svg"
               }
             ].map((item, index) => (
               <motion.div 

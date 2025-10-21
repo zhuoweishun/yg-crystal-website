@@ -3,87 +3,87 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-// 虚拟水晶手串产品数据
+// 水晶手串产品数据 - 等待上传真实图片
 const crystal_products = [
   {
     id: 1,
     name: "紫水晶手串",
-    image_url: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 2,
     name: "白水晶手串",
-    image_url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 3,
     name: "粉水晶手串",
-    image_url: "https://images.unsplash.com/photo-1506629905607-c60f6c3e7db1?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 4,
     name: "黑曜石手串",
-    image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 5,
     name: "青金石手串",
-    image_url: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 6,
     name: "月光石手串",
-    image_url: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 7,
     name: "虎眼石手串",
-    image_url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 8,
     name: "玛瑙手串",
-    image_url: "https://images.unsplash.com/photo-1506629905607-c60f6c3e7db1?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 9,
     name: "碧玺手串",
-    image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 10,
     name: "海蓝宝手串",
-    image_url: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 11,
     name: "石榴石手串",
-    image_url: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 12,
     name: "拉长石手串",
-    image_url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 13,
     name: "绿幽灵手串",
-    image_url: "https://images.unsplash.com/photo-1506629905607-c60f6c3e7db1?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 14,
     name: "黄水晶手串",
-    image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 15,
     name: "茶水晶手串",
-    image_url: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   },
   {
     id: 16,
     name: "红玛瑙手串",
-    image_url: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=75"
+    image_url: "/crystal-placeholder.svg"
   }
 ];
 

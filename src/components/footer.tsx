@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 
 export function Footer() {
   return (
@@ -15,6 +16,25 @@ export function Footer() {
               className="hover:text-white transition-colors duration-200 underline"
             >
               苏ICP备2025210868号-1
+            </a>
+          </div>
+
+          {/* 公安备案信息 - 法规要求必须显示 */}
+          <div className="text-sm text-gray-200 font-medium">
+            <a 
+              href="https://beian.mps.gov.cn/#/query/webSearch?code=32050502012374" 
+              target="_blank" 
+              rel="noreferrer"
+              className="hover:text-white transition-colors duration-200 underline flex items-center justify-center gap-1"
+            >
+              <Image 
+                src="/beian-icon.png" 
+                alt="公安备案" 
+                width={14} 
+                height={14} 
+                className="inline-block"
+              />
+              苏公网安备32050502012374号
             </a>
           </div>
 

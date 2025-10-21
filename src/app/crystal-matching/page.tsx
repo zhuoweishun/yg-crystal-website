@@ -4,15 +4,35 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-// 图片错误处理组件 - 统一使用占位图片
+// 图片错误处理组件 - 动态读取crystals文件夹图片
 const CrystalImage = ({ crystal_name, className }: { crystal_name: string; className?: string }) => {
   const [is_loading, set_is_loading] = useState(true)
+  const [has_error, set_has_error] = useState(false)
   
-  // 统一使用占位图片，避免404错误
-  const image_src = '/crystal-placeholder.svg'
+  // 动态构建图片路径，优先尝试.png，然后.svg
+  const get_image_src = () => {
+    return `/crystals/${crystal_name}.png`
+  }
   
   const handle_image_load = () => {
     set_is_loading(false)
+    set_has_error(false)
+  }
+  
+  const handle_image_error = () => {
+    set_is_loading(false)
+    set_has_error(true)
+  }
+  
+  // 如果图片加载失败，显示×符号
+  if (has_error) {
+    return (
+      <div className={`relative ${className || ''}`}>
+        <div className="w-full aspect-[4/3] bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
+          <div className="text-gray-400 text-4xl font-bold">×</div>
+        </div>
+      </div>
+    )
   }
   
   return (
@@ -23,12 +43,13 @@ const CrystalImage = ({ crystal_name, className }: { crystal_name: string; class
         </div>
       )}
       <Image
-        src={image_src}
+        src={get_image_src()}
         alt={crystal_name}
         width={800}
-        height={800}
-        className={`w-full h-48 object-cover rounded-lg transition-opacity duration-300 ${is_loading ? 'opacity-0' : 'opacity-100'}`}
+        height={600}
+        className={`w-full aspect-[4/3] object-cover rounded-lg transition-opacity duration-300 ${is_loading ? 'opacity-0' : 'opacity-100'}`}
         onLoad={handle_image_load}
+        onError={handle_image_error}
         priority={false}
       />
     </div>

@@ -242,7 +242,7 @@ class CachedApiClient {
   private async fetch_with_timeout(
     url: string,
     config: RequestInit,
-    timeout: number = 10000
+    timeout: number = 30000 // 增加到30秒
   ): Promise<Response> {
     const controller = new AbortController()
     const timeout_id = setTimeout(() => controller.abort(), timeout)
@@ -256,6 +256,18 @@ class CachedApiClient {
       return response
     } catch (error) {
       clearTimeout(timeout_id)
+      
+      // 改进错误处理，避免在生产环境中记录过多错误
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          throw new Error(`请求超时: ${url} (${timeout}ms)`)
+        } else if (error.message.includes('ETIMEDOUT') || error.message.includes('TimeoutError')) {
+          throw new Error(`网络超时: ${url}`)
+        } else if (error.message.includes('fetch failed')) {
+          throw new Error(`网络连接失败: ${url}`)
+        }
+      }
+      
       throw error
     }
   }

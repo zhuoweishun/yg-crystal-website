@@ -17,7 +17,7 @@ export default function EnergyTestPage() {
         "佩戴水晶手串后重复测试",
         "对比前后差异"
       ],
-      image_url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center",
+      image_url: "/crystal-placeholder.svg",
       result: "佩戴水晶后，平衡力显著提升，能够保持更长时间的稳定状态"
     },
     {
@@ -32,7 +32,7 @@ export default function EnergyTestPage() {
         "佩戴水晶手串后重复测试",
         "记录柔韧性改善程度"
       ],
-      image_url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop&crop=center",
+      image_url: "/crystal-placeholder.svg",
       result: "佩戴水晶后，柔韧性显著增加，手指能够更接近地面"
     }
   ];
