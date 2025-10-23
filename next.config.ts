@@ -9,10 +9,10 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'standalone',
+  // 允许开发环境跨域访问
+  allowedDevOrigins: ['192.168.50.160', 'localhost', '127.0.0.1'],
   // 确保静态资源正确处理
-  experimental: {
-    outputFileTracingRoot: process.cwd(),
-  },
+  outputFileTracingRoot: process.cwd(),
 }
 
 export default nextConfig

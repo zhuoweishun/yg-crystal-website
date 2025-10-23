@@ -81,7 +81,7 @@ export default function About() {
             >
               <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/crystal-placeholder.svg"
+                  src="/brand/founder.jpg"
                   alt="主理人汪成冲"
                   fill
                   className="object-cover"
@@ -197,19 +197,19 @@ export default function About() {
                 step: "01",
                 title: "精选原石",
                 desc: "亲自前往产地，用专业眼光和直觉感受，挑选每一块具有独特能量和美感的天然水晶原石。",
-                image: "/crystal-placeholder.svg"
+                image: "/brand/raw-stones.jpg"
               },
               {
                 step: "02",
                 title: "创意设计",
                 desc: "根据每块水晶的天然特性，构思独特的设计方案，让设计与材料完美融合，展现最佳效果。",
-                image: "/crystal-placeholder.svg"
+                image: "/brand/creative-design.jpg"
               },
               {
                 step: "03",
                 title: "精工制作",
                 desc: "运用传统手工技艺结合现代工具，亲自完成每一道工序，确保作品达到最高品质标准。",
-                image: "/crystal-placeholder.svg"
+                image: "/brand/craftsmanship.jpg"
               }
             ].map((item, index) => (
               <motion.div 
@@ -289,8 +289,7 @@ export default function About() {
                 <p 
                   className="font-sans font-light text-gray-600"
                 >
-                  北京市朝阳区<br />
-                  爻光晶舍工作室
+                  江苏省苏州市高新区马润商业广场2幢412室006号 爻光晶舍工作室
                 </p>
               </div>
               
@@ -303,8 +302,8 @@ export default function About() {
                 <p 
                   className="font-sans font-light text-gray-600"
                 >
-                  微信：ygcrystal<br />
-                  邮箱：contact@ygcrystal.com
+                  微信：yg-crystal<br />
+                  邮箱：contact@yg-crystal.com
                 </p>
               </div>
             </div>

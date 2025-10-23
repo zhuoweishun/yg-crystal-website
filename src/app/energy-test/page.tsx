@@ -17,7 +17,7 @@ export default function EnergyTestPage() {
         "佩戴水晶手串后重复测试",
         "对比前后差异"
       ],
-      image_url: "/crystal-placeholder.svg",
+      image_url: "/energy-test/balance-test.jpg",
       result: "佩戴水晶后，平衡力显著提升，能够保持更长时间的稳定状态"
     },
     {
@@ -32,7 +32,7 @@ export default function EnergyTestPage() {
         "佩戴水晶手串后重复测试",
         "记录柔韧性改善程度"
       ],
-      image_url: "/crystal-placeholder.svg",
+      image_url: "/energy-test/flexibility-test.jpg",
       result: "佩戴水晶后，柔韧性显著增加，手指能够更接近地面"
     }
   ];
@@ -145,7 +145,7 @@ export default function EnergyTestPage() {
               >
                 {/* Image */}
                 <div className="lg:w-1/2">
-                  <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                     <Image
                       src={method.image_url}
                       alt={method.title}
